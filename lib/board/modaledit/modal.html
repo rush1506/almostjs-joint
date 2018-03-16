@@ -78,6 +78,19 @@
                             </table>
                         </div>
                     </div>
+                    <div class="form-group" data-bind="if: type === 'dictionary', visible: type === 'dictionary'">
+                        <details>
+                            <summary class="col-sm-2 control-label" data-bind="text: name"></summary>
+                            <div class="col-sm-10" data-bind="foreach: items">
+                                <div class="form-group" data-bind="if: type === 'string', visible: type === 'string'">
+                                    <label class="col-sm-2 control-label" data-bind="text: name, attr: {for: 'input-field' + property}"></label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text" data-bind="textInput: value, executeOnEnter: $root.close, attr: {id: 'input-field' + property}">
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
                     <div class="form-group" data-bind="if: type === 'bindings', visible: type === 'bindings'">
                         <label class="col-sm-2 control-label" data-bind="text: name"></label>
                         <div class="cols-sm-10 col-sm-10">
